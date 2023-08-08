@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Insolvenzbekanntmachungen",
+  "version": "1.0",
+  "description": "Insolvenzbekanntmachungen",
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "content_scripts": [
+    {
+        "matches": ["https://www.handelsregister.de/*"],
+        "js":      ["scripts/content.js"]
+    }
+  ],
+  "action": {
+    "default_title": "Click to open panel"
+  },
+  "host_permissions":["https://www.handelsregister.de/*"],
+  "permissions": ["sidePanel", "tabs", "storage", "activeTab", "downloads"],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+B",
+        "mac": "Command+B"
+      }
+    }
+  },
+  "icons": {
+    "16": "images/justitia-16.png",
+    "48": "images/justitia-48.png",
+    "128": "images/justitia-128.png"
+  }
+}
